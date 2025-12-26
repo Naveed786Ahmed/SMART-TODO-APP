@@ -1,16 +1,55 @@
-# React + Vite
+# 🧠 Smart Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive, and feature-rich **Smart Todo App** built with **React**, **Tailwind CSS**, and **Firebase**.  
+This project was created as a learning-focused yet professional-grade React application, emphasizing **clean UX**, **real-world features**, and **scalable architecture**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+### 📝 Task Management
+- Add, edit, and delete todos
+- Mark tasks as completed
+- Undo delete with animated toast timer
+- Smart sorting (Overdue → Priority → Newest)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎯 Smart Filters & Focus Mode
+- Filter todos: **All / Active / Completed**
+- **Focus Mode** to show only high-priority active tasks
+- Meaningful empty states for better UX
 
-## Expanding the ESLint configuration
+### 🌗 Dark / Light Mode
+- Fully responsive **Dark Night Mode**
+- Theme preference saved in `localStorage`
+- Smooth UI transitions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Firebase Authentication
+- Email & password authentication
+- Proper Firebase error handling
+- Loading states for better UX
+- Secure logout functionality
+
+### 💾 Persistent Data
+- Todos stored in `localStorage`
+- Data persists on page refresh
+
+### 🎨 UI & UX Polish
+- Modern Tailwind CSS design
+- Fully responsive layout (mobile → desktop)
+- Modal-based editing experience
+- Task completion progress bar
+- Lucide icons for clean visuals
+
+---
+
+## 🛠 Tech Stack
+- **React (Vite)**
+- **Tailwind CSS**
+- **Firebase Authentication**
+- **Lucide Icons**
+- **LocalStorage**
+
+
+
+> _(Add screenshots after deployment)_
+
