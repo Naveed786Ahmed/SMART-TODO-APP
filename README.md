@@ -50,9 +50,6 @@ This project was created as a learning-focused yet professional-grade React appl
 - **LocalStorage**
 
 
-<img width="697" height="304" alt="image" src="https://github.com/user-attachments/assets/e1ab64e8-a48b-4714-8e70-3bb07efdac5d" />
-<img width="684" height="193" alt="image" src="https://github.com/user-attachments/assets/1882b21c-e8ee-4847-a207-510f0727e7cd" />
-<img width="497" height="365" alt="image" src="https://github.com/user-attachments/assets/33cab559-566f-49f5-a20e-d00d26f8ecba" />
 
 
 
