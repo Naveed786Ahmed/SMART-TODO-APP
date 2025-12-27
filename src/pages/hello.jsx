@@ -6,11 +6,11 @@ import { auth, signOut } from '../firebase/config.js';
 const Dashboard = () => {
 
     // const [todos, setTodos] = useState([]);
-    const [title, setTitle] = useState("");
-    const [priority, setPriority] = useState("medium");
-    const [dueDate, setDueDate] = useState("");
-    const [filter, setFilter] = useState("all");
-    const [focusMode, setFocusMode] = useState(false);
+    // const [title, setTitle] = useState("");
+    // const [priority, setPriority] = useState("medium");
+    // const [dueDate, setDueDate] = useState("");
+    // const [filter, setFilter] = useState("all");
+    // const [focusMode, setFocusMode] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
     const [editingTodo, setEditingTodo] = useState(null);
     const [editTitle, setEditTitle] = useState("");
@@ -81,53 +81,53 @@ const Dashboard = () => {
         );
     };
 
-    const isOverdue = (dueDate) => {
-        if (!dueDate) return false;
+    // const isOverdue = (dueDate) => {
+    //     if (!dueDate) return false;
 
-        const today = new Date().setHours(0, 0, 0, 0);
-        return new Date(dueDate) < today;
-    };
+    //     const today = new Date().setHours(0, 0, 0, 0);
+    //     return new Date(dueDate) < today;
+    // };
 
-    const smartSortedTodos = (list) => {
-        return [...list].sort((a, b) => {
+    // const smartSortedTodos = (list) => {
+    //     return [...list].sort((a, b) => {
 
-            // Overdue first
-            const aOver = isOverdue(a.dueDate);
-            const bOver = isOverdue(b.dueDate);
+    //         // Overdue first
+    //         const aOver = isOverdue(a.dueDate);
+    //         const bOver = isOverdue(b.dueDate);
 
-            if (aOver && !bOver) return -1;
-            if (!aOver && bOver) return 1;
+    //         if (aOver && !bOver) return -1;
+    //         if (!aOver && bOver) return 1;
 
-            // Priority order
-            const priorityRank = { high: 0, medium: 1, low: 2 };
-            if (priorityRank[a.priority] !== priorityRank[b.priority]) {
-                return priorityRank[a.priority] - priorityRank[b.priority];
-            }
+    //         // Priority order
+    //         const priorityRank = { high: 0, medium: 1, low: 2 };
+    //         if (priorityRank[a.priority] !== priorityRank[b.priority]) {
+    //             return priorityRank[a.priority] - priorityRank[b.priority];
+    //         }
 
-            // Newest first
-            return b.createdAt - a.createdAt;
-        });
-    };
+    //         // Newest first
+    //         return b.createdAt - a.createdAt;
+    //     });
+    // };
 
-    const visibleTodos = () => {
-        let list = todos;
+    // const visibleTodos = () => {
+    //     let list = todos;
 
-        if (filter === "active") {
-            list = list.filter(t => !t.completed);
-        }
+    //     if (filter === "active") {
+    //         list = list.filter(t => !t.completed);
+    //     }
 
-        if (filter === "completed") {
-            list = list.filter(t => t.completed);
-        }
+    //     if (filter === "completed") {
+    //         list = list.filter(t => t.completed);
+    //     }
 
-        if (focusMode) {
-            list = list.filter(
-                t => !t.completed && t.priority === "high"
-            );
-        }
+    //     if (focusMode) {
+    //         list = list.filter(
+    //             t => !t.completed && t.priority === "high"
+    //         );
+    //     }
 
-        return smartSortedTodos(list);
-    };
+    //     return smartSortedTodos(list);
+    // };
 
 
     const deleteTodo = (todo) => {
