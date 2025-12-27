@@ -3,10 +3,13 @@ import { useTheme } from '../hooks/useTheme.js'
 import Header from '../components/Header.jsx';
 import { useTodos } from '../hooks/useTodos.js';
 import AddTodoForm from '../components/AddTodoForm.jsx';
+import FilterBar from '../components/FilterBar.jsx';
+import { useFilteredTodos } from '../hooks/useFilteredTodos.js';
 
 const Dashboard = () => {
     const { darkMode, toggleTheme } = useTheme();
-    const {todos, addTodo} = useTodos();
+    const { todos, addTodo } = useTodos();
+    const { filter, setFilter, focusMode, setFocusMode, visibleTodos } = useFilteredTodos(todos)
 
     return (
         <>
@@ -20,8 +23,9 @@ const Dashboard = () => {
 
             >
                 <div className='max-w-4xl mx-auto space-y-3'>
-                    <Header todos={todos} darkMode={darkMode} toggleTheme={toggleTheme}/>
-                    <AddTodoForm darkMode={darkMode} onAddTodo={addTodo}/>
+                    <Header todos={todos} darkMode={darkMode} toggleTheme={toggleTheme} />
+                    <AddTodoForm darkMode={darkMode} onAddTodo={addTodo} />
+                    <FilterBar darkMode={darkMode} filter={filter} setFilter={setFilter} focusMode={focusMode} setFocusMode={setFocusMode} />
                 </div>
             </div>
         </>
