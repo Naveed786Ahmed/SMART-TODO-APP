@@ -49,7 +49,7 @@ This project was created as a learning-focused yet professional-grade React appl
 - **Lucide Icons**
 - **LocalStorage**
 
-
+🚀 **Live Preview:** [Smart Todo App](https://smart-todo-app-2x6b.vercel.app/)
 
 
 
