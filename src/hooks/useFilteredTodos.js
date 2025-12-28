@@ -54,6 +54,6 @@ export const useFilteredTodos = (todos) => {
     }, [todos, filter, focusMode]);
 
     return {
-        filter, setFilter, focusMode, setFocusMode, visibleTodos
+        filter, setFilter, focusMode, setFocusMode, visibleTodos, isOverdue
     }
 }

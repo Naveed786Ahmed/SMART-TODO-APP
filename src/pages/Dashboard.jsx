@@ -5,11 +5,36 @@ import { useTodos } from '../hooks/useTodos.js';
 import AddTodoForm from '../components/AddTodoForm.jsx';
 import FilterBar from '../components/FilterBar.jsx';
 import { useFilteredTodos } from '../hooks/useFilteredTodos.js';
+import TodoList from '../components/TodoList.jsx';
+import { useEditTodo } from '../hooks/useEditTodo.js';
+import { useUndoTodo } from '../hooks/useUndoTodo.js';
 
 const Dashboard = () => {
     const { darkMode, toggleTheme } = useTheme();
-    const { todos, addTodo } = useTodos();
-    const { filter, setFilter, focusMode, setFocusMode, visibleTodos } = useFilteredTodos(todos)
+    const { todos, addTodo, toggleTodo, deleteTodo, restoreTodo, updateTodo } = useTodos();
+    const { filter, setFilter, focusMode, setFocusMode, visibleTodos, isOverdue } = useFilteredTodos(todos)
+    const { showEditModal, editingTodo, editTitle, editPriority, editDueDate, onEditTodo, setShowEditModal, setEditingTodo, setEditTitle, setEditPriority, setEditDueDate } = useEditTodo()
+    const { showUndoToast, undoProgress, startUndo, handleUndo } = useUndoTodo(restoreTodo);
+
+    const handleDeleteTodo = (todo) => {
+        deleteTodo(todo.id);
+        startUndo(todo);
+    };
+
+    const handleUpdateTodo = () => {
+        if (!editTitle.trim()) return;
+
+        updateTodo({
+            id: editingTodo.id,
+            title: editTitle.trim(),
+            priority: editPriority,
+            dueDate: editDueDate || null
+        });
+
+        setShowEditModal(false);
+        setEditingTodo(null);
+    };
+
 
     return (
         <>
@@ -25,7 +50,35 @@ const Dashboard = () => {
                 <div className='max-w-4xl mx-auto space-y-3'>
                     <Header todos={todos} darkMode={darkMode} toggleTheme={toggleTheme} />
                     <AddTodoForm darkMode={darkMode} onAddTodo={addTodo} />
-                    <FilterBar darkMode={darkMode} filter={filter} setFilter={setFilter} focusMode={focusMode} setFocusMode={setFocusMode} />
+                    <FilterBar
+                        darkMode={darkMode}
+                        filter={filter}
+                        setFilter={setFilter}
+                        focusMode={focusMode}
+                        setFocusMode={setFocusMode}
+                    />
+                    <TodoList
+                        darkMode={darkMode}
+                        filter={filter}
+                        focusMode={focusMode}
+                        visibleTodos={visibleTodos}
+                        isOverdue={isOverdue}
+                        toggleTodo={toggleTodo}
+                        onEditTodo={onEditTodo}
+                        handleDeleteTodo={handleDeleteTodo}
+                        showUndoToast={showUndoToast}
+                        undoProgress={undoProgress}
+                        handleUndo={handleUndo}
+                        showEditModal={showEditModal}
+                        editTitle={editTitle}
+                        editPriority={editPriority}
+                        editDueDate={editDueDate}
+                        setEditTitle={setEditTitle}
+                        setEditPriority={setEditPriority}
+                        setEditDueDate={setEditDueDate}
+                        handleUpdateTodo={handleUpdateTodo}
+                        setShowEditModal={setShowEditModal}
+                    />
                 </div>
             </div>
         </>
